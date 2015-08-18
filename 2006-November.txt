@@ -1,0 +1,52 @@
+From tbetbe at users.berlios.de  Sun Nov 26 01:15:32 2006
+From: tbetbe at users.berlios.de (Tim Emiola)
+Date: Sun, 26 Nov 2006 00:15:32 +0000
+Subject: [Hjb-users] HJB 0.9.1 released
+Message-ID: <336ade8a0611251615v595a829ag55ba3fb35b1b1e64@mail.gmail.com>
+
+HJB <http://hjb.berlios.de>, the HTTP JMS Bridge, provides a REST
+<http://en.wikipedia.org/wiki/REST> version of the JMS
+<http://java.sun.com/products/jms> API.  This REST API allows programs
+in languages other than Java to access **ANY** messaging systems that
+provide a JMS interface.
+
+HJB 0.9.0 was released last week, but HJB 0.9.1 has been released very
+quickly afterwards to fix an important bug.
+
+The important features in these 0.9.x releases are:
+
+**  0.9.1 **
+
+* fixed an error that prevented recursive listing from working
+
+* added the ability to configure HJB's runtime system parameters from
+the java servlet config XML file
+
+* added the /collect command (Collect From) for consumers and
+subscribers.  This allows clients to collect several messages from HJB
+in one HTTP request
+
+* changed the output of the /list commands so that it looks more like
+the output of 'ls -lR' when recursively listing
+
+** 0.9.0 **
+
+* started recording the creation time of the JMS objects created by
+HJB for use in listing reports
+
+* added the ability to list JMS sessions, connections, connection
+factories and providers
+
+* JMS connection errors are written to a unique log file per JMS connection
+
+* added an /errors command for JMS connections to allow clients to
+retrieve the JMS connection error logs
+
+* the large HJBConnection class has been refactored, all session
+handling has been moved to a new class HJBSession
+
+* major changes are recorded in a changelog which can be accessed
+online via the svn repository here:
+<http://svn.berlios.de/wsvn/hjb/trunk/ChangeLog?op=file&rev=0&sc=0>
+
+

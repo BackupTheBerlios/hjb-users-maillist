@@ -1,0 +1,39 @@
+From tbetbe at berlios.de  Wed Jun 21 15:16:04 2006
+From: tbetbe at berlios.de (Tim Emiola)
+Date: Wed, 21 Jun 2006 14:16:04 +0100
+Subject: [Hjb-users] [ANN] HJB-0.8.2 (HTTP JMS Bridge) released
+Message-ID: <336ade8a0606210616q30f6b3bdnbc87ef5aa1aefc9f@mail.gmail.com>
+
+HJB provides access to JMS resources via HTTP.
+
+HJB <http://hjb.berlios.de>
+
+* is **language-neutral**: it will allow the writing of software
+  libraries for communicating with JMS providers in any language
+  that has libraries for communicating over HTTP.
+
+* is **RESTful**: it provides a RESTful equivalent to all of the
+  non-optional portions of the JMS API including
+
+  - registration of resources administered by the messaging provider
+
+  - connection and session management
+
+  - sending and receipt of all types of JMS message
+
+HJB is free software, released under the LGPL license.  HJB-0.8.2 is
+the latest release.
+
+A companion project, PyHJB <http://hjb.python-hosting.com> has
+released a python client for HJB, so it is now possible to write JMS
+messaging programs in 100% pure python.
+
+For further information, see the HJB website <http://hjb.berlios.de>.
+
+Please send any comments and suggestions to the HJB users mailing list
+<mailto:hjb-users at lists.berlios.de>. Bugs should be reported on the
+HJB trac <http://hjb.python-hosting.com/newticket?component=hjb>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/hjb-users/attachments/20060621/cc1d357b/attachment.html>
+

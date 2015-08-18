@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Hjb-users] Is there an example of how to use this?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/hjb-users/2006-July/index.html" >
+   <LINK REL="made" HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20Is%20there%20an%20example%20of%20how%20to%20use%20this%3F&In-Reply-To=%3C5030EF6B1114384FA5E6AF563C3ACB7727843D%40TMNSMAIL1.nl.tmns.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Hjb-users] Is there an example of how to use this?</H1>
+    <B>Richard Jewson</B> 
+    <A HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20Is%20there%20an%20example%20of%20how%20to%20use%20this%3F&In-Reply-To=%3C5030EF6B1114384FA5E6AF563C3ACB7727843D%40TMNSMAIL1.nl.tmns.com%3E"
+       TITLE="[Hjb-users] Is there an example of how to use this?">rjewson at tmns.com
+       </A><BR>
+    <I>Mon Jul 17 14:33:02 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Ok, I'm trying to use you project via a web front end that deals with
+various queues/topics for monitoring &amp; testing.  So far I have achived
+the following:
+
+1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+2) Started Tomcat and get:
+2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet] Hello
+- I've successfully started HJB root!
+2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner]
+[JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+now active
+
+However in the log of tomcat I get:
+
+INFO: Container
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl]
+has not been started
+17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+validateJarFile
+INFO:
+validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib\weblo
+gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+Offending class: javax/servlet/Servlet.class
+17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext start
+INFO: Container
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl]
+has already been started
+
+I'm not sure if this is a problem.
+
+3) From here I tried to construct some URI's that would register a
+provider e.g.
+
+<A HREF="http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.factory">http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.factory</A>
+.initial=weblogic.jndi.WLInitialContextFactory&amp;java.naming.provider.url=
+t3://127.0.0.1:7501
+
+However the format of the URL (especially the parameters) was not clear
+to me.  Each time I send a request I'd get the following line in the log
+file:
+
+2006-07-17 11:07:48,240 INFO  [http-8080-Processor22] [HJBApplication]
+Could not match request [/weblogic/connectionFactory]
+
+4) I saw the example files below but a) I've no experience with Python
+b) I don't have a huge amount of time to go through the Python Lib.
+
+
+What I was looking for were some simple step by step examples of URL's
+for POSTS and GETS that would enable me to send a message to a Queue.
+
+Regards
+Richard Jewson
+
+
+-----Original Message-----
+From: Tim Emiola [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>] 
+Sent: 17 July 2006 14:02
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb-users at lists.berlios.de</A>
+Cc: Richard Jewson
+Subject: RE: [Hjb-users] Is there an example of how to use this?
+
+Hi Richard,
+
+(Apologies for not CCing you on my first attempt)
+
+When running quick demos and manual functional tests,  I tend to use the
+python client for HJB, PyHjb &lt;<A HREF="http://hjb.python-hosting.com">http://hjb.python-hosting.com</A>&gt;, and
+ActiveMQ &lt;<A HREF="http://www.activemq.org">http://www.activemq.org</A>&gt;.  What messaging product are you
+using ?
+
+I'm not sure precisely what info you are looking for for, but the
+following list of URLs might help:
+
+    Instructions for downloading PyHJB:
+<A HREF="http://hjb.python-hosting.com/wiki/GettingStarted">http://hjb.python-hosting.com/wiki/GettingStarted</A>
+
+    There are simple code samples for using PyHJB:
+<A HREF="http://hjb.python-hosting.com/wiki/ExampleCode">http://hjb.python-hosting.com/wiki/ExampleCode</A>
+
+    The PyHjb distribution comes with a number of functions that
+demonstrate the use of python to communicate with a JMS server via HJB.
+Information about these demos is available here:
+<A HREF="http://hjb.python-hosting.com/wiki/WorkingDemos.">http://hjb.python-hosting.com/wiki/WorkingDemos.</A>
+
+    The instructions for configuring several different messaging
+providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for use
+with HJB are included in the PyHJB distribution, and they can be
+accessed online via Trac:
+
+    ActiveMQ:
+<A HREF="http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing-a">http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing-a</A>
+ctivemq.rst?rev=44
+
+    SwiftMQ:
+<A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testing">http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testing</A>
+-swiftmq.rst?rev=latest
+
+    WebSphereMQ:
+<A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-ws">http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-ws</A>
+mq.rst?rev=latest
+
+    JBossMessaging:
+<A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing-j">http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing-j</A>
+boss.rst?rev=latest
+
+My apologies if you've already looked at these, and want more!
+
+Please let me know these links helped or not,
+
+Tim
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/hjb-users">More information about the Hjb-users
+mailing list</a><br>
+</body></html>

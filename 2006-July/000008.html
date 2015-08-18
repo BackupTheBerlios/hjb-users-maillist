@@ -1,0 +1,541 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Hjb-users] Is there an example of how to use this?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/hjb-users/2006-July/index.html" >
+   <LINK REL="made" HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20Is%20there%20an%20example%20of%20how%20to%20use%20this%3F&In-Reply-To=%3C336ade8a0607180341l18f2b442wedb9763bca3e1d63%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Hjb-users] Is there an example of how to use this?</H1>
+    <B>Tim Emiola</B> 
+    <A HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20Is%20there%20an%20example%20of%20how%20to%20use%20this%3F&In-Reply-To=%3C336ade8a0607180341l18f2b442wedb9763bca3e1d63%40mail.gmail.com%3E"
+       TITLE="[Hjb-users] Is there an example of how to use this?">tbetbe at users.berlios.de
+       </A><BR>
+    <I>Tue Jul 18 12:41:17 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yup,
+
+Sorry, that's my fault.  You don't need to specify the hostname when
+you use the destination-url parameter, so Step 6 should have been:
+
+&lt;snip&gt;
+6) POST
+<A HREF="http://localhost:8080/hjb-wl/hjb/wl-provider/a_url_encoded_wl_connection_factory_jndi_name/connection-0/session-0/create-producer">http://localhost:8080/hjb-wl/hjb/wl-provider/a_url_encoded_wl_connection_factory_jndi_name/connection-0/session-0/create-producer</A>
+
+with parameter
+
+destination-url=/hjb-wl/hjb/wl-provider/destination/a_url_encoded_wl_destination_name
+&lt;/snip&gt;
+
+I assume you've changed to the Weblogic configuration so that you are
+now using JMS1.1 ?
+
+On 7/18/06, Richard Jewson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">rjewson at tmns.com</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I've got the example working as far as creating a producer (I'm still on
+</I>&gt;<i> webLogic 7), where it complains about an invalid destination URL:
+</I>&gt;<i>
+</I>&gt;<i> 2006-07-18 09:38:18,138 INFO  [http-8080-Processor25] [HJBServlet] Hello
+</I>&gt;<i> - I've successfully started HJB root!
+</I>&gt;<i>  2006-07-18 09:38:18,138 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+</I>&gt;<i> now active
+</I>&gt;<i>  2006-07-18 09:38:18,238 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> generator [RegisterProviderGenerator] [POST] [/wlprovider/register]
+</I>&gt;<i>  2006-07-18 09:38:20,291 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Register wlprovider as
+</I>&gt;<i> a hjb.jms.HJBProvider]
+</I>&gt;<i>  2006-07-18 09:59:03,919 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [RegisterDestinationGenerator] [GET]
+</I>&gt;<i> [/wlprovider/destination/Asap2Vitria/register]
+</I>&gt;<i>  2006-07-18 09:59:04,019 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+</I>&gt;<i> as a javax.jms.Destination]
+</I>&gt;<i>  2006-07-18 09:59:40,712 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> Could not match request [/wlprovider/JMSUPCConnection/create]
+</I>&gt;<i>  2006-07-18 10:00:27,159 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [RegisterConnectionFactoryGenerator] [GET]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/register]
+</I>&gt;<i>  2006-07-18 10:00:27,309 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Register
+</I>&gt;<i> JMSUPCConnection as a javax.jms.ConnectionFactory]
+</I>&gt;<i>  2006-07-18 10:01:43,989 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> Could not match request [/wlprovider/JMSUPCConnection/create]
+</I>&gt;<i>  2006-07-18 10:11:25,345 INFO  [http-8080-Processor24] [HJBServlet]
+</I>&gt;<i> Hello - I've successfully started HJB root!
+</I>&gt;<i>  2006-07-18 10:11:25,345 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+</I>&gt;<i> now active
+</I>&gt;<i>  2006-07-18 10:11:25,445 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [RegisterProviderGenerator] [POST] [/wlprovider/register]
+</I>&gt;<i>  2006-07-18 10:11:27,769 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Register wlprovider as
+</I>&gt;<i> a hjb.jms.HJBProvider]
+</I>&gt;<i>  2006-07-18 10:11:30,993 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [RegisterDestinationGenerator] [GET]
+</I>&gt;<i> [/wlprovider/destination/Asap2Vitria/register]
+</I>&gt;<i>  2006-07-18 10:11:31,134 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+</I>&gt;<i> as a javax.jms.Destination]
+</I>&gt;<i>  2006-07-18 10:11:35,951 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [RegisterConnectionFactoryGenerator] [GET]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/register]
+</I>&gt;<i>  2006-07-18 10:11:36,131 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Register
+</I>&gt;<i> JMSUPCConnection as a javax.jms.ConnectionFactory]
+</I>&gt;<i>  2006-07-18 10:11:42,009 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [CreateConnectionGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/create]
+</I>&gt;<i>  2006-07-18 10:11:42,480 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Create a
+</I>&gt;<i> hjb.jms.HJBConnection: N/A]
+</I>&gt;<i>  2006-07-18 10:18:31,488 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> generator [CreateSessionGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/create]
+</I>&gt;<i>  2006-07-18 10:18:31,608 INFO  [HJB Root Command Runner]
+</I>&gt;<i> [JMSCommandRunner] Just executed                 [Create a
+</I>&gt;<i> javax.jms.Session: 0]
+</I>&gt;<i>  2006-07-18 10:18:31,608 INFO  [<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb.jms.HJBConnection at 24c672</A>:Session:0]
+</I>&gt;<i> [JMSCommandRunner] JMSCommandRunner in thread
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb.jms.HJBConnection at 24c672</A>:Session:0 is now active
+</I>&gt;<i>  2006-07-18 10:24:43,623 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [CreateProducerGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+</I>&gt;<i>  2006-07-18 10:24:43,683 ERROR [http-8080-Processor24]
+</I>&gt;<i> [JMSArgumentFinder] Invalid destination URL was provided:
+</I>&gt;<i> <A HREF="http://localhost:8080/MonitorWFE/hjb/wlprovider/Asap2Vitria">http://localhost:8080/MonitorWFE/hjb/wlprovider/Asap2Vitria</A>
+</I>&gt;<i>  2006-07-18 10:25:06,156 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> generator [CreateProducerGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+</I>&gt;<i>  2006-07-18 10:25:06,166 ERROR [http-8080-Processor25]
+</I>&gt;<i> [JMSArgumentFinder] Invalid destination URL was provided:
+</I>&gt;<i> <A HREF="http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria">http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria</A>
+</I>&gt;<i>  2006-07-18 10:27:02,763 INFO  [http-8080-Processor24] [HJBApplication]
+</I>&gt;<i> generator [CreateProducerGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+</I>&gt;<i>  2006-07-18 10:27:02,763 ERROR [http-8080-Processor24]
+</I>&gt;<i> [JMSArgumentFinder] Invalid destination URL was provided:
+</I>&gt;<i> <A HREF="http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria">http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria</A>
+</I>&gt;<i>  2006-07-18 10:29:52,017 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> generator [CreateProducerGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+</I>&gt;<i>  2006-07-18 10:29:52,017 ERROR [http-8080-Processor25]
+</I>&gt;<i> [JMSArgumentFinder] Invalid destination URL was provided:
+</I>&gt;<i> <A HREF="http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria">http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria</A>
+</I>&gt;<i>  2006-07-18 10:30:23,682 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> generator [CreateProducerGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+</I>&gt;<i>  2006-07-18 10:30:23,682 ERROR [http-8080-Processor25]
+</I>&gt;<i> [JMSArgumentFinder] Invalid destination URL was provided: Asap2Vitria
+</I>&gt;<i>  2006-07-18 10:30:38,093 INFO  [http-8080-Processor25] [HJBApplication]
+</I>&gt;<i> generator [CreateProducerGenerator] [POST]
+</I>&gt;<i> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+</I>&gt;<i>  2006-07-18 10:30:38,093 ERROR [http-8080-Processor25]
+</I>&gt;<i> [JMSArgumentFinder] Invalid destination URL was provided:
+</I>&gt;<i> destination/Asap2Vitria
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Any ideas?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>] On Behalf Of
+</I>&gt;<i> Tim Emiola
+</I>&gt;<i> Sent: 17 July 2006 20:13
+</I>&gt;<i> To: Richard Jewson
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb-users at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [Hjb-users] Is there an example of how to use this?
+</I>&gt;<i>
+</I>&gt;<i> Unfortunately, it does - HJB assumes JMS 1.1 compliance, and the errors
+</I>&gt;<i> below are consistent with the creation of JMS1.0.2 objects that don't
+</I>&gt;<i> implement the JMS 1.1 interrfaces:
+</I>&gt;<i>
+</I>&gt;<i> javax.jms.ConnectionFactory  and javax.jms.Destination
+</I>&gt;<i>
+</I>&gt;<i> These do not exist prior to JMS1.1, hence you would get ClassCast
+</I>&gt;<i> Exceptions on registering pre-1.1 Topics, Queues and ConnectionFactorys.
+</I>&gt;<i>
+</I>&gt;<i> On 7/17/06, Richard Jewson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">rjewson at tmns.com</A>&gt; wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks - it seems to register the provider but not a Destination or
+</I>&gt;<i> &gt; Connection Factory:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2006-07-17 19:19:51,731 INFO  [HJB Root Command Runner]
+</I>&gt;<i> &gt; [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner
+</I>&gt;<i> &gt; is now active
+</I>&gt;<i> &gt;  2006-07-17 19:19:51,731 INFO  [http-8080-Processor24] [HJBServlet]
+</I>&gt;<i> &gt; Hello - I've successfully started HJB root!
+</I>&gt;<i> &gt;  2006-07-17 19:19:51,941 INFO  [http-8080-Processor24]
+</I>&gt;<i> &gt; [HJBApplication] generator [RegisterProviderGenerator] [POST]
+</I>&gt;<i> &gt; [/myprovider/register]
+</I>&gt;<i> &gt;  2006-07-17 19:19:54,525 INFO  [HJB Root Command Runner]
+</I>&gt;<i> &gt; [JMSCommandRunner] Just executed                 [Register myprovider
+</I>&gt;<i> as
+</I>&gt;<i> &gt; a hjb.jms.HJBProvider]
+</I>&gt;<i> &gt;  2006-07-17 19:22:04,462 INFO  [http-8080-Processor25]
+</I>&gt;<i> &gt; [HJBApplication] Could not match request
+</I>&gt;<i> &gt; [/wl-provider/Asap2Vitria/register]
+</I>&gt;<i> &gt;  2006-07-17 19:22:50,238 INFO  [http-8080-Processor24]
+</I>&gt;<i> &gt; [HJBApplication] generator [RegisterConnectionFactoryGenerator] [GET]
+</I>&gt;<i> &gt; [/myprovider/Asap2Vitria/register]
+</I>&gt;<i> &gt;  2006-07-17 19:22:50,468 ERROR [HJB Root Command Runner]
+</I>&gt;<i> &gt; [BaseJMSCommand] java.lang.ClassCastException:
+</I>&gt;<i> &gt; weblogic.jms.common.DestinationImpl
+</I>&gt;<i> &gt;  2006-07-17 19:22:50,468 INFO  [HJB Root Command Runner]
+</I>&gt;<i> &gt; [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+</I>&gt;<i> &gt; as a javax.jms.ConnectionFactory]
+</I>&gt;<i> &gt;  2006-07-17 19:29:26,438 INFO  [http-8080-Processor25]
+</I>&gt;<i> &gt; [HJBApplication] generator [RegisterConnectionFactoryGenerator] [GET]
+</I>&gt;<i> &gt; [/myprovider/Cramer2Vitria/register]
+</I>&gt;<i> &gt;  2006-07-17 19:29:26,448 ERROR [HJB Root Command Runner]
+</I>&gt;<i> &gt; [BaseJMSCommand] java.lang.ClassCastException:
+</I>&gt;<i> &gt; weblogic.jms.common.DestinationImpl
+</I>&gt;<i> &gt;  2006-07-17 19:29:26,448 INFO  [HJB Root Command Runner]
+</I>&gt;<i> &gt; [JMSCommandRunner] Just executed                 [Register
+</I>&gt;<i> Cramer2Vitria
+</I>&gt;<i> &gt; as a javax.jms.ConnectionFactory]
+</I>&gt;<i> &gt;  2006-07-17 19:31:24,307 INFO  [http-8080-Processor24]
+</I>&gt;<i> &gt; [HJBApplication] generator [RegisterConnectionFactoryGenerator] [GET]
+</I>&gt;<i> &gt; [/myprovider/JMSUPCConnection/register]
+</I>&gt;<i> &gt;  2006-07-17 19:31:24,477 ERROR [HJB Root Command Runner]
+</I>&gt;<i> &gt; [BaseJMSCommand] java.lang.ClassCastException:
+</I>&gt;<i> &gt; weblogic.jms.client.JMSConnectionFactory
+</I>&gt;<i> &gt;  2006-07-17 19:31:24,477 INFO  [HJB Root Command Runner]
+</I>&gt;<i> &gt; [JMSCommandRunner] Just executed                 [Register
+</I>&gt;<i> &gt; JMSUPCConnection as a javax.jms.ConnectionFactory]
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I'm using webLogic 7 which is JMS 1.0.2b not 1.1, would that make a
+</I>&gt;<i> &gt; difference?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt; Richard
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; -----Original Message-----
+</I>&gt;<i> &gt; From: Tim Emiola [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>]
+</I>&gt;<i> &gt; Sent: 17 July 2006 18:24
+</I>&gt;<i> &gt; To: Richard Jewson
+</I>&gt;<i> &gt; Subject: Re: [Hjb-users] Is there an example of how to use this?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Richard,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; please see the attached file.  Let me know how it goes.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Tim
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On 7/17/06, Richard Jewson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">rjewson at tmns.com</A>&gt; wrote:
+</I>&gt;<i> &gt; &gt; Hi,
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Thanks for the reply:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 1) I misread the GET/POST thing for registering providers call -
+</I>&gt;<i> &gt; &gt; sorry
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; about that.  On the page
+</I>&gt;<i> &gt; &gt; &lt;<A HREF="http://hjb.berlios.de/register-provider.html">http://hjb.berlios.de/register-provider.html</A>&gt;
+</I>&gt;<i> &gt; &gt; it talks about multiple parameters.  I guess these are thing like:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+</I>&gt;<i> &gt; &gt; java.naming.provider.url=t3://127.0.0.1:7501
+</I>&gt;<i> &gt; &gt; java.naming.security.principal=admin
+</I>&gt;<i> &gt; &gt; java.naming.security.credentials=password
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; What format/parameters names do you use in the post?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 2) I've attached my .WAR file (without the 37Mb weblogic.jar)
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Once I have a working example I'd be happy to write up my install as
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; another perspective.  I'll also propably write some simple web pages
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; in JSTL that create a session, connect and send messages - I'll send
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; that to you as well.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; -----Original Message-----
+</I>&gt;<i> &gt; &gt; From: Tim Emiola [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>]
+</I>&gt;<i> &gt; &gt; Sent: 17 July 2006 15:42
+</I>&gt;<i> &gt; &gt; To: Richard Jewson
+</I>&gt;<i> &gt; &gt; Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; Subject: Re: [Hjb-users] Is there an example of how to use this?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Hi Richard,
+</I>&gt;<i> &gt; &gt; See the &lt;comments/&gt; below.
+</I>&gt;<i> &gt; &gt; Let me know if you want me to send you a list of URLs before I
+</I>&gt;<i> &gt; &gt; update the website.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; On 7/17/06, Richard Jewson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">rjewson at tmns.com</A>&gt; wrote:
+</I>&gt;<i> &gt; &gt; &gt; Hi,
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Ok, I'm trying to use you project via a web front end that deals
+</I>&gt;<i> &gt; &gt; &gt; with various queues/topics for monitoring &amp; testing.  So far I
+</I>&gt;<i> &gt; &gt; &gt; have achived
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; the following:
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; 1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+</I>&gt;<i> &gt; &gt; &gt; 2) Started Tomcat and get:
+</I>&gt;<i> &gt; &gt; &gt; 2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet]
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; &gt; Hello
+</I>&gt;<i> &gt; &gt; &gt; - I've successfully started HJB root!
+</I>&gt;<i> &gt; &gt; &gt; 2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner]
+</I>&gt;<i> &gt; &gt; &gt; [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command
+</I>&gt;<i> &gt; &gt; &gt; Runner is now active
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; However in the log of tomcat I get:
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; INFO: Container
+</I>&gt;<i> &gt; &gt; &gt; org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hj
+</I>&gt;<i> &gt; &gt; &gt; b-
+</I>&gt;<i> &gt; &gt; &gt; wl
+</I>&gt;<i> &gt; &gt; &gt; ]
+</I>&gt;<i> &gt; &gt; &gt; has not been started
+</I>&gt;<i> &gt; &gt; &gt; 17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+</I>&gt;<i> &gt; &gt; &gt; validateJarFile
+</I>&gt;<i> &gt; &gt; &gt; INFO:
+</I>&gt;<i> &gt; &gt; &gt; validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib
+</I>&gt;<i> &gt; &gt; &gt; \w
+</I>&gt;<i> &gt; &gt; &gt; eb
+</I>&gt;<i> &gt; &gt; &gt; lo
+</I>&gt;<i> &gt; &gt; &gt; gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+</I>&gt;<i> &gt; &gt; &gt; Offending class: javax/servlet/Servlet.class
+</I>&gt;<i> &gt; &gt; &gt; 17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext
+</I>&gt;<i> &gt; &gt; &gt; start
+</I>&gt;<i> &gt; &gt; &gt; INFO: Container
+</I>&gt;<i> &gt; &gt; &gt; org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hj
+</I>&gt;<i> &gt; &gt; &gt; b-
+</I>&gt;<i> &gt; &gt; &gt; wl
+</I>&gt;<i> &gt; &gt; &gt; ]
+</I>&gt;<i> &gt; &gt; &gt; has already been started
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; I'm not sure if this is a problem.
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &lt;comment&gt;
+</I>&gt;<i> &gt; &gt; I'm not sure about this either.  If the weblogic.jar file is really
+</I>&gt;<i> &gt; &gt; not loaded, it will not be possible to find the
+</I>&gt;<i> &gt; &gt; weblogic.jndi.WLInitialContextFactory class.  However, since this
+</I>&gt;<i> &gt; &gt; error occurs during servlet startup, it may not be a problem - it is
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; probably Tomcat rejecting a version of the Servlet class found in
+</I>&gt;<i> &gt; &gt; the weblogic.jar, which is the correct thing to do.
+</I>&gt;<i> &gt; &gt; &lt;/comment&gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; 3) From here I tried to construct some URI's that would register a
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; &gt; provider e.g.
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.f">http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.f</A>
+</I>&gt;<i> &gt; &gt; &gt; ac
+</I>&gt;<i> &gt; &gt; &gt; to
+</I>&gt;<i> &gt; &gt; &gt; ry
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> .initial=weblogic.jndi.WLInitialContextFactory&amp;java.naming.provider.
+</I>&gt;<i> &gt; &gt; &gt; ur
+</I>&gt;<i> &gt; &gt; &gt; l=
+</I>&gt;<i> &gt; &gt; &gt; t3://127.0.0.1:7501
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &lt;comment&gt;
+</I>&gt;<i> &gt; &gt; The reason this does not work is because provider registration needs
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; a
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; POST request. See &lt;<A HREF="http://hjb.berlios.de/command-list.html">http://hjb.berlios.de/command-list.html</A>&gt; and
+</I>&gt;<i> &gt; &gt; &lt;<A HREF="http://hjb.berlios.de/register-provider.html">http://hjb.berlios.de/register-provider.html</A>&gt;
+</I>&gt;<i> &gt; &gt; After this, no other requests will work, because the provider has
+</I>&gt;<i> &gt; &gt; not been registered successfully.
+</I>&gt;<i> &gt; &gt; &lt;/comment&gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; However the format of the URL (especially the parameters) was not
+</I>&gt;<i> &gt; &gt; &gt; clear to me.  Each time I send a request I'd get the following
+</I>&gt;<i> &gt; &gt; &gt; line in
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; the log
+</I>&gt;<i> &gt; &gt; &gt; file:
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; 2006-07-17 11:07:48,240 INFO  [http-8080-Processor22]
+</I>&gt;<i> &gt; &gt; &gt; [HJBApplication]
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Could not match request [/weblogic/connectionFactory]
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &lt;comment&gt;
+</I>&gt;<i> &gt; &gt; Can you post some of the URL's you are trying at the moment in
+</I>&gt;<i> &gt; &gt; addition to the registration one?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; This looks as if you're sending a request to URL
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; <A HREF="http://localhost:8080/hjb-wl/weblogic/connectionFactory">http://localhost:8080/hjb-wl/weblogic/connectionFactory</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; and the servlet is not finding the anything.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; This would be the case, as &quot;weblogic&quot; is not registered as a
+</I>&gt;<i> provider.
+</I>&gt;<i> &gt; &gt; &lt;/comment&gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; 4) I saw the example files below but a) I've no experience with
+</I>&gt;<i> &gt; &gt; &gt; Python
+</I>&gt;<i> &gt; &gt; &gt; b) I don't have a huge amount of time to go through the Python
+</I>&gt;<i> Lib.
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; What I was looking for were some simple step by step examples of
+</I>&gt;<i> &gt; &gt; &gt; URL's
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; for POSTS and GETS that would enable me to send a message to a
+</I>&gt;<i> &gt; Queue.
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &lt;comment&gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Thanks, that's a really good idea.  I'll do it, and put it on the
+</I>&gt;<i> &gt; &gt; website later today.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; If you need this urgently, send me a copy of the hjb WAR file you've
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; created, plus any pertinent weblogic configuration details (e.g.,
+</I>&gt;<i> &gt; &gt; connection factory or destination names), and I'll send you series
+</I>&gt;<i> &gt; &gt; of URLs with the corresponding request methods that should allow you
+</I>&gt;<i>
+</I>&gt;<i> &gt; &gt; to send a message.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &lt;/comment&gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Regards
+</I>&gt;<i> &gt; &gt; &gt; Richard Jewson
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; -----Original Message-----
+</I>&gt;<i> &gt; &gt; &gt; From: Tim Emiola [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>]
+</I>&gt;<i> &gt; &gt; &gt; Sent: 17 July 2006 14:02
+</I>&gt;<i> &gt; &gt; &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; &gt; Cc: Richard Jewson
+</I>&gt;<i> &gt; &gt; &gt; Subject: RE: [Hjb-users] Is there an example of how to use this?
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Hi Richard,
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; (Apologies for not CCing you on my first attempt)
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; When running quick demos and manual functional tests,  I tend to
+</I>&gt;<i> &gt; &gt; &gt; use
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; &gt; the python client for HJB, PyHjb &lt;<A HREF="http://hjb.python-hosting.com">http://hjb.python-hosting.com</A>&gt;,
+</I>&gt;<i> &gt; &gt; &gt; and ActiveMQ &lt;<A HREF="http://www.activemq.org">http://www.activemq.org</A>&gt;.  What messaging product
+</I>&gt;<i> &gt; &gt; &gt; are you using ?
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; I'm not sure precisely what info you are looking for for, but the
+</I>&gt;<i> &gt; &gt; &gt; following list of URLs might help:
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     Instructions for downloading PyHJB:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/wiki/GettingStarted">http://hjb.python-hosting.com/wiki/GettingStarted</A>
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     There are simple code samples for using PyHJB:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/wiki/ExampleCode">http://hjb.python-hosting.com/wiki/ExampleCode</A>
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     The PyHjb distribution comes with a number of functions that
+</I>&gt;<i> &gt; &gt; &gt; demonstrate the use of python to communicate with a JMS server via
+</I>&gt;<i> &gt; &gt; HJB.
+</I>&gt;<i> &gt; &gt; &gt; Information about these demos is available here:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/wiki/WorkingDemos.">http://hjb.python-hosting.com/wiki/WorkingDemos.</A>
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     The instructions for configuring several different messaging
+</I>&gt;<i> &gt; &gt; &gt; providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ)
+</I>&gt;<i> &gt; &gt; &gt; for
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; &gt; use with HJB are included in the PyHJB distribution, and they can
+</I>&gt;<i> &gt; &gt; &gt; be
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; &gt; accessed online via Trac:
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     ActiveMQ:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/file/trunk/samples/data/activemq/tes">http://hjb.python-hosting.com/file/trunk/samples/data/activemq/tes</A>
+</I>&gt;<i> &gt; &gt; &gt; ti
+</I>&gt;<i> &gt; &gt; &gt; ng
+</I>&gt;<i> &gt; &gt; &gt; -a
+</I>&gt;<i> &gt; &gt; &gt; ctivemq.rst?rev=44
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     SwiftMQ:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/t">http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/t</A>
+</I>&gt;<i> &gt; &gt; &gt; es
+</I>&gt;<i> &gt; &gt; &gt; ti
+</I>&gt;<i> &gt; &gt; &gt; ng
+</I>&gt;<i> &gt; &gt; &gt; -swiftmq.rst?rev=latest
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     WebSphereMQ:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/test">http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/test</A>
+</I>&gt;<i> &gt; &gt; &gt; in
+</I>&gt;<i> &gt; &gt; &gt; g-
+</I>&gt;<i> &gt; &gt; &gt; ws
+</I>&gt;<i> &gt; &gt; &gt; mq.rst?rev=latest
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt;     JBossMessaging:
+</I>&gt;<i> &gt; &gt; &gt; <A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/tes">http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/tes</A>
+</I>&gt;<i> &gt; &gt; &gt; ti
+</I>&gt;<i> &gt; &gt; &gt; ng
+</I>&gt;<i> &gt; &gt; &gt; -j
+</I>&gt;<i> &gt; &gt; &gt; boss.rst?rev=latest
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; My apologies if you've already looked at these, and want more!
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Please let me know these links helped or not,
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt; &gt; Tim
+</I>&gt;<i> &gt; &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/hjb-users">More information about the Hjb-users
+mailing list</a><br>
+</body></html>

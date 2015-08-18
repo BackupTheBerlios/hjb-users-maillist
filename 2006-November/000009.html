@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Hjb-users] HJB 0.9.1 released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/hjb-users/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20HJB%200.9.1%20released&In-Reply-To=%3C336ade8a0611251615v595a829ag55ba3fb35b1b1e64%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Hjb-users] HJB 0.9.1 released</H1>
+    <B>Tim Emiola</B> 
+    <A HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20HJB%200.9.1%20released&In-Reply-To=%3C336ade8a0611251615v595a829ag55ba3fb35b1b1e64%40mail.gmail.com%3E"
+       TITLE="[Hjb-users] HJB 0.9.1 released">tbetbe at users.berlios.de
+       </A><BR>
+    <I>Sun Nov 26 01:15:32 CET 2006</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>HJB &lt;<A HREF="http://hjb.berlios.de">http://hjb.berlios.de</A>&gt;, the HTTP JMS Bridge, provides a REST
+&lt;<A HREF="http://en.wikipedia.org/wiki/REST">http://en.wikipedia.org/wiki/REST</A>&gt; version of the JMS
+&lt;<A HREF="http://java.sun.com/products/jms">http://java.sun.com/products/jms</A>&gt; API.  This REST API allows programs
+in languages other than Java to access **ANY** messaging systems that
+provide a JMS interface.
+
+HJB 0.9.0 was released last week, but HJB 0.9.1 has been released very
+quickly afterwards to fix an important bug.
+
+The important features in these 0.9.x releases are:
+
+**  0.9.1 **
+
+* fixed an error that prevented recursive listing from working
+
+* added the ability to configure HJB's runtime system parameters from
+the java servlet config XML file
+
+* added the /collect command (Collect From) for consumers and
+subscribers.  This allows clients to collect several messages from HJB
+in one HTTP request
+
+* changed the output of the /list commands so that it looks more like
+the output of 'ls -lR' when recursively listing
+
+** 0.9.0 **
+
+* started recording the creation time of the JMS objects created by
+HJB for use in listing reports
+
+* added the ability to list JMS sessions, connections, connection
+factories and providers
+
+* JMS connection errors are written to a unique log file per JMS connection
+
+* added an /errors command for JMS connections to allow clients to
+retrieve the JMS connection error logs
+
+* the large HJBConnection class has been refactored, all session
+handling has been moved to a new class HJBSession
+
+* major changes are recorded in a changelog which can be accessed
+online via the svn repository here:
+&lt;<A HREF="http://svn.berlios.de/wsvn/hjb/trunk/ChangeLog?op=file&amp;rev=0&amp;sc=0">http://svn.berlios.de/wsvn/hjb/trunk/ChangeLog?op=file&amp;rev=0&amp;sc=0</A>&gt;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/hjb-users">More information about the Hjb-users
+mailing list</a><br>
+</body></html>

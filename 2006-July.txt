@@ -1,0 +1,1485 @@
+From rjewson at tmns.com  Sun Jul 16 19:00:47 2006
+From: rjewson at tmns.com (Richard Jewson)
+Date: Sun, 16 Jul 2006 19:00:47 +0200
+Subject: [Hjb-users] Is there an example of how to use this?
+Message-ID: <5030EF6B1114384FA5E6AF563C3ACB77278385@TMNSMAIL1.nl.tmns.com>
+
+First, I'de like to say this looks like a very interesting project,
+however, I'm having problems actually using.  I seem to have found every
+piece of documentation apart from one that actually walks you through an
+example.  Can anybody help?
+
+Met vriendelijke groet, Kind regards,
+__________________________________________
+Richard Jewson
+M: +31 (0)641 55 99 51
+P: +31 (0)70 3011720
+F: +31 (0)70 3011722
+W: <http://www.tmns.com/>
+A: Oude Middenweg 53 2491 AC The Hague NL
+__________________________________________
+Note:  This  message  shall  not  constitute  any  obligations.  
+The information contained in this message may be privileged and
+confidential and protected  from disclosure. If the reader of this
+message is not the intended recipient,  or an employee  or agent
+responsible  for  delivering this  message  to the  intended recipient,
+you  are hereby  notified  that any  dissemination, distribution or
+copying of this communication is strictly prohibited. If you have
+received  this communication in error, please notify us immediately by
+replying to the  message and deleting it from your computer. Thank you.
+TMNS bv. 
+ 
+
+
+From tbetbe at users.berlios.de  Mon Jul 17 12:58:32 2006
+From: tbetbe at users.berlios.de (Tim Emiola)
+Date: Mon, 17 Jul 2006 11:58:32 +0100
+Subject: [Hjb-users] Is there an example of how to use this
+Message-ID: <336ade8a0607170358h331263cel6dc40af296947f97@mail.gmail.com>
+
+Hi Richard,
+
+When running quick demos and manual functional tests,  I tend to use
+the python client for HJB, PyHjb <http://hjb.python-hosting.com>, and
+ActiveMQ <http://www.activemq.org>.  What messaging product are you
+using ?
+
+I'm not sure precisely what info you are looking for for, but the
+following list of URLs might help:
+
+    Instructions for downloading PyHJB:
+http://hjb.python-hosting.com/wiki/GettingStarted
+
+    There are simple code samples for using PyHJB:
+http://hjb.python-hosting.com/wiki/ExampleCode
+
+    The PyHjb distribution comes with a number of functions that
+demonstrate the use of python to communicate with a JMS server via
+HJB.  Information about these demos is available here:
+http://hjb.python-hosting.com/wiki/WorkingDemos.
+
+    The instructions for configuring several different messaging
+providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for
+use with HJB are included in the PyHJB distribution, and they can be
+accessed online via Trac:
+
+    ActiveMQ:
+http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing-activemq.rst?rev=44
+
+    SwiftMQ:
+http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testing-swiftmq.rst?rev=latest
+
+    WebSphereMQ:
+http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-wsmq.rst?rev=latest
+
+    JBossMessaging:
+http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing-jboss.rst?rev=latest
+
+My apologies if you've already looked at these, and want more!
+
+Please let me know these links helped or not,
+
+Tim
+
+
+From tim.emiola at gmail.com  Mon Jul 17 14:02:10 2006
+From: tim.emiola at gmail.com (Tim Emiola)
+Date: Mon, 17 Jul 2006 13:02:10 +0100
+Subject: [Hjb-users] Is there an example of how to use this?
+Message-ID: <336ade8a0607170502yf4788e0jb4435ce7d0595871@mail.gmail.com>
+
+Hi Richard,
+
+(Apologies for not CCing you on my first attempt)
+
+When running quick demos and manual functional tests,  I tend to use
+the python client for HJB, PyHjb <http://hjb.python-hosting.com>, and
+ActiveMQ <http://www.activemq.org>.  What messaging product are you
+using ?
+
+I'm not sure precisely what info you are looking for for, but the
+following list of URLs might help:
+
+    Instructions for downloading PyHJB:
+http://hjb.python-hosting.com/wiki/GettingStarted
+
+    There are simple code samples for using PyHJB:
+http://hjb.python-hosting.com/wiki/ExampleCode
+
+    The PyHjb distribution comes with a number of functions that
+demonstrate the use of python to communicate with a JMS server via
+HJB.  Information about these demos is available here:
+http://hjb.python-hosting.com/wiki/WorkingDemos.
+
+    The instructions for configuring several different messaging
+providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for
+use with HJB are included in the PyHJB distribution, and they can be
+accessed online via Trac:
+
+    ActiveMQ:
+http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing-activemq.rst?rev=44
+
+    SwiftMQ:
+http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testing-swiftmq.rst?rev=latest
+
+    WebSphereMQ:
+http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-wsmq.rst?rev=latest
+
+    JBossMessaging:
+http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing-jboss.rst?rev=latest
+
+My apologies if you've already looked at these, and want more!
+
+Please let me know these links helped or not,
+
+Tim
+
+
+From rjewson at tmns.com  Mon Jul 17 14:33:02 2006
+From: rjewson at tmns.com (Richard Jewson)
+Date: Mon, 17 Jul 2006 14:33:02 +0200
+Subject: [Hjb-users] Is there an example of how to use this?
+Message-ID: <5030EF6B1114384FA5E6AF563C3ACB7727843D@TMNSMAIL1.nl.tmns.com>
+
+Hi,
+
+Ok, I'm trying to use you project via a web front end that deals with
+various queues/topics for monitoring & testing.  So far I have achived
+the following:
+
+1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+2) Started Tomcat and get:
+2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet] Hello
+- I've successfully started HJB root!
+2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner]
+[JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+now active
+
+However in the log of tomcat I get:
+
+INFO: Container
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl]
+has not been started
+17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+validateJarFile
+INFO:
+validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib\weblo
+gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+Offending class: javax/servlet/Servlet.class
+17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext start
+INFO: Container
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl]
+has already been started
+
+I'm not sure if this is a problem.
+
+3) From here I tried to construct some URI's that would register a
+provider e.g.
+
+http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.factory
+.initial=weblogic.jndi.WLInitialContextFactory&java.naming.provider.url=
+t3://127.0.0.1:7501
+
+However the format of the URL (especially the parameters) was not clear
+to me.  Each time I send a request I'd get the following line in the log
+file:
+
+2006-07-17 11:07:48,240 INFO  [http-8080-Processor22] [HJBApplication]
+Could not match request [/weblogic/connectionFactory]
+
+4) I saw the example files below but a) I've no experience with Python
+b) I don't have a huge amount of time to go through the Python Lib.
+
+
+What I was looking for were some simple step by step examples of URL's
+for POSTS and GETS that would enable me to send a message to a Queue.
+
+Regards
+Richard Jewson
+
+
+-----Original Message-----
+From: Tim Emiola [mailto:tim.emiola at gmail.com] 
+Sent: 17 July 2006 14:02
+To: hjb-users at lists.berlios.de
+Cc: Richard Jewson
+Subject: RE: [Hjb-users] Is there an example of how to use this?
+
+Hi Richard,
+
+(Apologies for not CCing you on my first attempt)
+
+When running quick demos and manual functional tests,  I tend to use the
+python client for HJB, PyHjb <http://hjb.python-hosting.com>, and
+ActiveMQ <http://www.activemq.org>.  What messaging product are you
+using ?
+
+I'm not sure precisely what info you are looking for for, but the
+following list of URLs might help:
+
+    Instructions for downloading PyHJB:
+http://hjb.python-hosting.com/wiki/GettingStarted
+
+    There are simple code samples for using PyHJB:
+http://hjb.python-hosting.com/wiki/ExampleCode
+
+    The PyHjb distribution comes with a number of functions that
+demonstrate the use of python to communicate with a JMS server via HJB.
+Information about these demos is available here:
+http://hjb.python-hosting.com/wiki/WorkingDemos.
+
+    The instructions for configuring several different messaging
+providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for use
+with HJB are included in the PyHJB distribution, and they can be
+accessed online via Trac:
+
+    ActiveMQ:
+http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing-a
+ctivemq.rst?rev=44
+
+    SwiftMQ:
+http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testing
+-swiftmq.rst?rev=latest
+
+    WebSphereMQ:
+http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-ws
+mq.rst?rev=latest
+
+    JBossMessaging:
+http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing-j
+boss.rst?rev=latest
+
+My apologies if you've already looked at these, and want more!
+
+Please let me know these links helped or not,
+
+Tim
+
+
+From tim.emiola at gmail.com  Mon Jul 17 15:41:45 2006
+From: tim.emiola at gmail.com (Tim Emiola)
+Date: Mon, 17 Jul 2006 14:41:45 +0100
+Subject: [Hjb-users] Is there an example of how to use this?
+In-Reply-To: <5030EF6B1114384FA5E6AF563C3ACB7727843D@TMNSMAIL1.nl.tmns.com>
+References: <5030EF6B1114384FA5E6AF563C3ACB7727843D@TMNSMAIL1.nl.tmns.com>
+Message-ID: <336ade8a0607170641l443d535ckd6dc14d0b4571586@mail.gmail.com>
+
+Hi Richard,
+See the <comments/> below.
+Let me know if you want me to send you a list of URLs before I update
+the website.
+
+On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> Hi,
+>
+> Ok, I'm trying to use you project via a web front end that deals with
+> various queues/topics for monitoring & testing.  So far I have achived
+> the following:
+>
+> 1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+> 2) Started Tomcat and get:
+> 2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet] Hello
+> - I've successfully started HJB root!
+> 2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+> now active
+>
+> However in the log of tomcat I get:
+>
+> INFO: Container
+> org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl]
+> has not been started
+> 17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+> validateJarFile
+> INFO:
+> validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib\weblo
+> gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+> Offending class: javax/servlet/Servlet.class
+> 17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext start
+> INFO: Container
+> org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl]
+> has already been started
+>
+> I'm not sure if this is a problem.
+>
+
+<comment>
+I'm not sure about this either.  If the weblogic.jar file is really
+not loaded, it will not be possible to find the
+weblogic.jndi.WLInitialContextFactory class.  However, since this
+error occurs during servlet startup, it may not be a problem - it is
+probably Tomcat rejecting a version of the Servlet class found in the
+weblogic.jar, which is the correct thing to do.
+</comment>
+
+> 3) From here I tried to construct some URI's that would register a
+> provider e.g.
+>
+> http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.factory
+> .initial=weblogic.jndi.WLInitialContextFactory&java.naming.provider.url=
+> t3://127.0.0.1:7501
+>
+
+<comment>
+The reason this does not work is because provider registration needs a
+POST request. See
+<http://hjb.berlios.de/command-list.html> and
+<http://hjb.berlios.de/register-provider.html>
+After this, no other requests will work, because the provider has not
+been registered successfully.
+</comment>
+
+> However the format of the URL (especially the parameters) was not clear
+> to me.  Each time I send a request I'd get the following line in the log
+> file:
+>
+> 2006-07-17 11:07:48,240 INFO  [http-8080-Processor22] [HJBApplication]
+> Could not match request [/weblogic/connectionFactory]
+>
+
+<comment>
+Can you post some of the URL's you are trying at the moment in
+addition to the registration one?
+
+This looks as if you're sending a request to URL
+
+http://localhost:8080/hjb-wl/weblogic/connectionFactory
+
+and the servlet is not finding the anything.
+
+This would be the case, as "weblogic" is not registered as a provider.
+</comment>
+
+> 4) I saw the example files below but a) I've no experience with Python
+> b) I don't have a huge amount of time to go through the Python Lib.
+>
+>
+> What I was looking for were some simple step by step examples of URL's
+> for POSTS and GETS that would enable me to send a message to a Queue.
+>
+
+<comment>
+
+Thanks, that's a really good idea.  I'll do it, and put it on the
+website later today.
+
+If you need this urgently, send me a copy of the hjb WAR file you've
+created, plus any pertinent weblogic configuration details (e.g.,
+connection factory or destination names), and I'll send you series of
+URLs with the corresponding request methods that should allow you to
+send a message.
+
+</comment>
+
+
+> Regards
+> Richard Jewson
+>
+>
+> -----Original Message-----
+> From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> Sent: 17 July 2006 14:02
+> To: hjb-users at lists.berlios.de
+> Cc: Richard Jewson
+> Subject: RE: [Hjb-users] Is there an example of how to use this?
+>
+> Hi Richard,
+>
+> (Apologies for not CCing you on my first attempt)
+>
+> When running quick demos and manual functional tests,  I tend to use the
+> python client for HJB, PyHjb <http://hjb.python-hosting.com>, and
+> ActiveMQ <http://www.activemq.org>.  What messaging product are you
+> using ?
+>
+> I'm not sure precisely what info you are looking for for, but the
+> following list of URLs might help:
+>
+>     Instructions for downloading PyHJB:
+> http://hjb.python-hosting.com/wiki/GettingStarted
+>
+>     There are simple code samples for using PyHJB:
+> http://hjb.python-hosting.com/wiki/ExampleCode
+>
+>     The PyHjb distribution comes with a number of functions that
+> demonstrate the use of python to communicate with a JMS server via HJB.
+> Information about these demos is available here:
+> http://hjb.python-hosting.com/wiki/WorkingDemos.
+>
+>     The instructions for configuring several different messaging
+> providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for use
+> with HJB are included in the PyHJB distribution, and they can be
+> accessed online via Trac:
+>
+>     ActiveMQ:
+> http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing-a
+> ctivemq.rst?rev=44
+>
+>     SwiftMQ:
+> http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testing
+> -swiftmq.rst?rev=latest
+>
+>     WebSphereMQ:
+> http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-ws
+> mq.rst?rev=latest
+>
+>     JBossMessaging:
+> http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing-j
+> boss.rst?rev=latest
+>
+> My apologies if you've already looked at these, and want more!
+>
+> Please let me know these links helped or not,
+>
+> Tim
+>
+
+
+From rjewson at tmns.com  Mon Jul 17 16:01:26 2006
+From: rjewson at tmns.com (Richard Jewson)
+Date: Mon, 17 Jul 2006 16:01:26 +0200
+Subject: [Hjb-users] Is there an example of how to use this?
+Message-ID: <5030EF6B1114384FA5E6AF563C3ACB77278478@TMNSMAIL1.nl.tmns.com>
+
+Hi,
+
+Thanks for the reply:
+
+1) I misread the GET/POST thing for registering providers call - sorry
+about that.  On the page <http://hjb.berlios.de/register-provider.html>
+it talks about multiple parameters.  I guess these are thing like:
+
+java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+java.naming.provider.url=t3://127.0.0.1:7501
+java.naming.security.principal=admin
+java.naming.security.credentials=password
+
+What format/parameters names do you use in the post?
+
+2) I've attached my .WAR file (without the 37Mb weblogic.jar)
+
+Once I have a working example I'd be happy to write up my install as
+another perspective.  I'll also propably write some simple web pages in
+JSTL that create a session, connect and send messages - I'll send that
+to you as well.
+
+
+-----Original Message-----
+From: Tim Emiola [mailto:tim.emiola at gmail.com] 
+Sent: 17 July 2006 15:42
+To: Richard Jewson
+Cc: hjb-users at lists.berlios.de
+Subject: Re: [Hjb-users] Is there an example of how to use this?
+
+Hi Richard,
+See the <comments/> below.
+Let me know if you want me to send you a list of URLs before I update
+the website.
+
+On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> Hi,
+>
+> Ok, I'm trying to use you project via a web front end that deals with 
+> various queues/topics for monitoring & testing.  So far I have achived
+
+> the following:
+>
+> 1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+> 2) Started Tomcat and get:
+> 2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet] 
+> Hello
+> - I've successfully started HJB root!
+> 2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner] 
+> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner 
+> is now active
+>
+> However in the log of tomcat I get:
+>
+> INFO: Container
+> org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl
+> ]
+> has not been started
+> 17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+> validateJarFile
+> INFO:
+> validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib\web
+> lo
+> gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+> Offending class: javax/servlet/Servlet.class
+> 17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext start
+> INFO: Container
+> org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl
+> ]
+> has already been started
+>
+> I'm not sure if this is a problem.
+>
+
+<comment>
+I'm not sure about this either.  If the weblogic.jar file is really not
+loaded, it will not be possible to find the
+weblogic.jndi.WLInitialContextFactory class.  However, since this error
+occurs during servlet startup, it may not be a problem - it is probably
+Tomcat rejecting a version of the Servlet class found in the
+weblogic.jar, which is the correct thing to do.
+</comment>
+
+> 3) From here I tried to construct some URI's that would register a 
+> provider e.g.
+>
+> http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.facto
+> ry 
+> .initial=weblogic.jndi.WLInitialContextFactory&java.naming.provider.ur
+> l=
+> t3://127.0.0.1:7501
+>
+
+<comment>
+The reason this does not work is because provider registration needs a
+POST request. See <http://hjb.berlios.de/command-list.html> and
+<http://hjb.berlios.de/register-provider.html>
+After this, no other requests will work, because the provider has not
+been registered successfully.
+</comment>
+
+> However the format of the URL (especially the parameters) was not 
+> clear to me.  Each time I send a request I'd get the following line in
+
+> the log
+> file:
+>
+> 2006-07-17 11:07:48,240 INFO  [http-8080-Processor22] [HJBApplication]
+
+> Could not match request [/weblogic/connectionFactory]
+>
+
+<comment>
+Can you post some of the URL's you are trying at the moment in addition
+to the registration one?
+
+This looks as if you're sending a request to URL
+
+http://localhost:8080/hjb-wl/weblogic/connectionFactory
+
+and the servlet is not finding the anything.
+
+This would be the case, as "weblogic" is not registered as a provider.
+</comment>
+
+> 4) I saw the example files below but a) I've no experience with Python
+> b) I don't have a huge amount of time to go through the Python Lib.
+>
+>
+> What I was looking for were some simple step by step examples of URL's
+
+> for POSTS and GETS that would enable me to send a message to a Queue.
+>
+
+<comment>
+
+Thanks, that's a really good idea.  I'll do it, and put it on the
+website later today.
+
+If you need this urgently, send me a copy of the hjb WAR file you've
+created, plus any pertinent weblogic configuration details (e.g.,
+connection factory or destination names), and I'll send you series of
+URLs with the corresponding request methods that should allow you to
+send a message.
+
+</comment>
+
+
+> Regards
+> Richard Jewson
+>
+>
+> -----Original Message-----
+> From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> Sent: 17 July 2006 14:02
+> To: hjb-users at lists.berlios.de
+> Cc: Richard Jewson
+> Subject: RE: [Hjb-users] Is there an example of how to use this?
+>
+> Hi Richard,
+>
+> (Apologies for not CCing you on my first attempt)
+>
+> When running quick demos and manual functional tests,  I tend to use 
+> the python client for HJB, PyHjb <http://hjb.python-hosting.com>, and 
+> ActiveMQ <http://www.activemq.org>.  What messaging product are you 
+> using ?
+>
+> I'm not sure precisely what info you are looking for for, but the 
+> following list of URLs might help:
+>
+>     Instructions for downloading PyHJB:
+> http://hjb.python-hosting.com/wiki/GettingStarted
+>
+>     There are simple code samples for using PyHJB:
+> http://hjb.python-hosting.com/wiki/ExampleCode
+>
+>     The PyHjb distribution comes with a number of functions that 
+> demonstrate the use of python to communicate with a JMS server via
+HJB.
+> Information about these demos is available here:
+> http://hjb.python-hosting.com/wiki/WorkingDemos.
+>
+>     The instructions for configuring several different messaging 
+> providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for 
+> use with HJB are included in the PyHJB distribution, and they can be 
+> accessed online via Trac:
+>
+>     ActiveMQ:
+> http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing
+> -a
+> ctivemq.rst?rev=44
+>
+>     SwiftMQ:
+> http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testi
+> ng
+> -swiftmq.rst?rev=latest
+>
+>     WebSphereMQ:
+> http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-
+> ws
+> mq.rst?rev=latest
+>
+>     JBossMessaging:
+> http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing
+> -j
+> boss.rst?rev=latest
+>
+> My apologies if you've already looked at these, and want more!
+>
+> Please let me know these links helped or not,
+>
+> Tim
+>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: hjb-wl-nowljar.war
+Type: application/octet-stream
+Size: 608258 bytes
+Desc: hjb-wl-nowljar.war
+URL: <https://lists.berlios.de/pipermail/hjb-users/attachments/20060717/b8e3636a/attachment.obj>
+
+From tbetbe at users.berlios.de  Mon Jul 17 20:13:02 2006
+From: tbetbe at users.berlios.de (Tim Emiola)
+Date: Mon, 17 Jul 2006 19:13:02 +0100
+Subject: [Hjb-users] Is there an example of how to use this?
+In-Reply-To: <5030EF6B1114384FA5E6AF563C3ACB772784AE@TMNSMAIL1.nl.tmns.com>
+References: <5030EF6B1114384FA5E6AF563C3ACB772784AE@TMNSMAIL1.nl.tmns.com>
+Message-ID: <336ade8a0607171113u2da605ean1712666adb177a30@mail.gmail.com>
+
+Unfortunately, it does - HJB assumes JMS 1.1 compliance, and the
+errors below are consistent with the creation of JMS1.0.2 objects that
+don't implement the JMS 1.1 interrfaces:
+
+javax.jms.ConnectionFactory  and javax.jms.Destination
+
+These do not exist prior to JMS1.1, hence you would get ClassCast
+Exceptions on registering pre-1.1 Topics, Queues and
+ConnectionFactorys.
+
+On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> Hi,
+>
+> Thanks - it seems to register the provider but not a Destination or
+> Connection Factory:
+>
+> 2006-07-17 19:19:51,731 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+> now active
+>  2006-07-17 19:19:51,731 INFO  [http-8080-Processor24] [HJBServlet]
+> Hello - I've successfully started HJB root!
+>  2006-07-17 19:19:51,941 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterProviderGenerator] [POST] [/myprovider/register]
+>  2006-07-17 19:19:54,525 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register myprovider as
+> a hjb.jms.HJBProvider]
+>  2006-07-17 19:22:04,462 INFO  [http-8080-Processor25] [HJBApplication]
+> Could not match request [/wl-provider/Asap2Vitria/register]
+>  2006-07-17 19:22:50,238 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterConnectionFactoryGenerator] [GET]
+> [/myprovider/Asap2Vitria/register]
+>  2006-07-17 19:22:50,468 ERROR [HJB Root Command Runner]
+> [BaseJMSCommand] java.lang.ClassCastException:
+> weblogic.jms.common.DestinationImpl
+>  2006-07-17 19:22:50,468 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+> as a javax.jms.ConnectionFactory]
+>  2006-07-17 19:29:26,438 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [RegisterConnectionFactoryGenerator] [GET]
+> [/myprovider/Cramer2Vitria/register]
+>  2006-07-17 19:29:26,448 ERROR [HJB Root Command Runner]
+> [BaseJMSCommand] java.lang.ClassCastException:
+> weblogic.jms.common.DestinationImpl
+>  2006-07-17 19:29:26,448 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register Cramer2Vitria
+> as a javax.jms.ConnectionFactory]
+>  2006-07-17 19:31:24,307 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterConnectionFactoryGenerator] [GET]
+> [/myprovider/JMSUPCConnection/register]
+>  2006-07-17 19:31:24,477 ERROR [HJB Root Command Runner]
+> [BaseJMSCommand] java.lang.ClassCastException:
+> weblogic.jms.client.JMSConnectionFactory
+>  2006-07-17 19:31:24,477 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register
+> JMSUPCConnection as a javax.jms.ConnectionFactory]
+>
+> I'm using webLogic 7 which is JMS 1.0.2b not 1.1, would that make a
+> difference?
+>
+>
+> Regards
+> Richard
+>
+>
+>
+>
+> -----Original Message-----
+> From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> Sent: 17 July 2006 18:24
+> To: Richard Jewson
+> Subject: Re: [Hjb-users] Is there an example of how to use this?
+>
+> Richard,
+>
+> please see the attached file.  Let me know how it goes.
+>
+> Tim
+>
+> On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> > Hi,
+> >
+> > Thanks for the reply:
+> >
+> > 1) I misread the GET/POST thing for registering providers call - sorry
+>
+> > about that.  On the page
+> > <http://hjb.berlios.de/register-provider.html>
+> > it talks about multiple parameters.  I guess these are thing like:
+> >
+> > java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+> > java.naming.provider.url=t3://127.0.0.1:7501
+> > java.naming.security.principal=admin
+> > java.naming.security.credentials=password
+> >
+> > What format/parameters names do you use in the post?
+> >
+> > 2) I've attached my .WAR file (without the 37Mb weblogic.jar)
+> >
+> > Once I have a working example I'd be happy to write up my install as
+> > another perspective.  I'll also propably write some simple web pages
+> > in JSTL that create a session, connect and send messages - I'll send
+> > that to you as well.
+> >
+> >
+> > -----Original Message-----
+> > From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> > Sent: 17 July 2006 15:42
+> > To: Richard Jewson
+> > Cc: hjb-users at lists.berlios.de
+> > Subject: Re: [Hjb-users] Is there an example of how to use this?
+> >
+> > Hi Richard,
+> > See the <comments/> below.
+> > Let me know if you want me to send you a list of URLs before I update
+> > the website.
+> >
+> > On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> > > Hi,
+> > >
+> > > Ok, I'm trying to use you project via a web front end that deals
+> > > with various queues/topics for monitoring & testing.  So far I have
+> > > achived
+> >
+> > > the following:
+> > >
+> > > 1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+> > > 2) Started Tomcat and get:
+> > > 2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet]
+> > > Hello
+> > > - I've successfully started HJB root!
+> > > 2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner]
+> > > [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command
+> > > Runner is now active
+> > >
+> > > However in the log of tomcat I get:
+> > >
+> > > INFO: Container
+> > > org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-
+> > > wl
+> > > ]
+> > > has not been started
+> > > 17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+> > > validateJarFile
+> > > INFO:
+> > > validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib\w
+> > > eb
+> > > lo
+> > > gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+> > > Offending class: javax/servlet/Servlet.class
+> > > 17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext start
+> > > INFO: Container
+> > > org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-
+> > > wl
+> > > ]
+> > > has already been started
+> > >
+> > > I'm not sure if this is a problem.
+> > >
+> >
+> > <comment>
+> > I'm not sure about this either.  If the weblogic.jar file is really
+> > not loaded, it will not be possible to find the
+> > weblogic.jndi.WLInitialContextFactory class.  However, since this
+> > error occurs during servlet startup, it may not be a problem - it is
+> > probably Tomcat rejecting a version of the Servlet class found in the
+> > weblogic.jar, which is the correct thing to do.
+> > </comment>
+> >
+> > > 3) From here I tried to construct some URI's that would register a
+> > > provider e.g.
+> > >
+> > > http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.fac
+> > > to
+> > > ry
+> > > .initial=weblogic.jndi.WLInitialContextFactory&java.naming.provider.
+> > > ur
+> > > l=
+> > > t3://127.0.0.1:7501
+> > >
+> >
+> > <comment>
+> > The reason this does not work is because provider registration needs a
+>
+> > POST request. See <http://hjb.berlios.de/command-list.html> and
+> > <http://hjb.berlios.de/register-provider.html>
+> > After this, no other requests will work, because the provider has not
+> > been registered successfully.
+> > </comment>
+> >
+> > > However the format of the URL (especially the parameters) was not
+> > > clear to me.  Each time I send a request I'd get the following line
+> > > in
+> >
+> > > the log
+> > > file:
+> > >
+> > > 2006-07-17 11:07:48,240 INFO  [http-8080-Processor22]
+> > > [HJBApplication]
+> >
+> > > Could not match request [/weblogic/connectionFactory]
+> > >
+> >
+> > <comment>
+> > Can you post some of the URL's you are trying at the moment in
+> > addition to the registration one?
+> >
+> > This looks as if you're sending a request to URL
+> >
+> > http://localhost:8080/hjb-wl/weblogic/connectionFactory
+> >
+> > and the servlet is not finding the anything.
+> >
+> > This would be the case, as "weblogic" is not registered as a provider.
+> > </comment>
+> >
+> > > 4) I saw the example files below but a) I've no experience with
+> > > Python
+> > > b) I don't have a huge amount of time to go through the Python Lib.
+> > >
+> > >
+> > > What I was looking for were some simple step by step examples of
+> > > URL's
+> >
+> > > for POSTS and GETS that would enable me to send a message to a
+> Queue.
+> > >
+> >
+> > <comment>
+> >
+> > Thanks, that's a really good idea.  I'll do it, and put it on the
+> > website later today.
+> >
+> > If you need this urgently, send me a copy of the hjb WAR file you've
+> > created, plus any pertinent weblogic configuration details (e.g.,
+> > connection factory or destination names), and I'll send you series of
+> > URLs with the corresponding request methods that should allow you to
+> > send a message.
+> >
+> > </comment>
+> >
+> >
+> > > Regards
+> > > Richard Jewson
+> > >
+> > >
+> > > -----Original Message-----
+> > > From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> > > Sent: 17 July 2006 14:02
+> > > To: hjb-users at lists.berlios.de
+> > > Cc: Richard Jewson
+> > > Subject: RE: [Hjb-users] Is there an example of how to use this?
+> > >
+> > > Hi Richard,
+> > >
+> > > (Apologies for not CCing you on my first attempt)
+> > >
+> > > When running quick demos and manual functional tests,  I tend to use
+>
+> > > the python client for HJB, PyHjb <http://hjb.python-hosting.com>,
+> > > and ActiveMQ <http://www.activemq.org>.  What messaging product are
+> > > you using ?
+> > >
+> > > I'm not sure precisely what info you are looking for for, but the
+> > > following list of URLs might help:
+> > >
+> > >     Instructions for downloading PyHJB:
+> > > http://hjb.python-hosting.com/wiki/GettingStarted
+> > >
+> > >     There are simple code samples for using PyHJB:
+> > > http://hjb.python-hosting.com/wiki/ExampleCode
+> > >
+> > >     The PyHjb distribution comes with a number of functions that
+> > > demonstrate the use of python to communicate with a JMS server via
+> > HJB.
+> > > Information about these demos is available here:
+> > > http://hjb.python-hosting.com/wiki/WorkingDemos.
+> > >
+> > >     The instructions for configuring several different messaging
+> > > providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for
+>
+> > > use with HJB are included in the PyHJB distribution, and they can be
+>
+> > > accessed online via Trac:
+> > >
+> > >     ActiveMQ:
+> > > http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testi
+> > > ng
+> > > -a
+> > > ctivemq.rst?rev=44
+> > >
+> > >     SwiftMQ:
+> > > http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/tes
+> > > ti
+> > > ng
+> > > -swiftmq.rst?rev=latest
+> > >
+> > >     WebSphereMQ:
+> > > http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testin
+> > > g-
+> > > ws
+> > > mq.rst?rev=latest
+> > >
+> > >     JBossMessaging:
+> > > http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testi
+> > > ng
+> > > -j
+> > > boss.rst?rev=latest
+> > >
+> > > My apologies if you've already looked at these, and want more!
+> > >
+> > > Please let me know these links helped or not,
+> > >
+> > > Tim
+> > >
+> >
+> >
+> >
+>
+
+
+From tbetbe at users.berlios.de  Tue Jul 18 12:41:17 2006
+From: tbetbe at users.berlios.de (Tim Emiola)
+Date: Tue, 18 Jul 2006 11:41:17 +0100
+Subject: [Hjb-users] Is there an example of how to use this?
+In-Reply-To: <5030EF6B1114384FA5E6AF563C3ACB772784F0@TMNSMAIL1.nl.tmns.com>
+References: <5030EF6B1114384FA5E6AF563C3ACB772784F0@TMNSMAIL1.nl.tmns.com>
+Message-ID: <336ade8a0607180341l18f2b442wedb9763bca3e1d63@mail.gmail.com>
+
+Yup,
+
+Sorry, that's my fault.  You don't need to specify the hostname when
+you use the destination-url parameter, so Step 6 should have been:
+
+<snip>
+6) POST
+http://localhost:8080/hjb-wl/hjb/wl-provider/a_url_encoded_wl_connection_factory_jndi_name/connection-0/session-0/create-producer
+
+with parameter
+
+destination-url=/hjb-wl/hjb/wl-provider/destination/a_url_encoded_wl_destination_name
+</snip>
+
+I assume you've changed to the Weblogic configuration so that you are
+now using JMS1.1 ?
+
+On 7/18/06, Richard Jewson <rjewson at tmns.com> wrote:
+> Hi,
+>
+> I've got the example working as far as creating a producer (I'm still on
+> webLogic 7), where it complains about an invalid destination URL:
+>
+> 2006-07-18 09:38:18,138 INFO  [http-8080-Processor25] [HJBServlet] Hello
+> - I've successfully started HJB root!
+>  2006-07-18 09:38:18,138 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+> now active
+>  2006-07-18 09:38:18,238 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [RegisterProviderGenerator] [POST] [/wlprovider/register]
+>  2006-07-18 09:38:20,291 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register wlprovider as
+> a hjb.jms.HJBProvider]
+>  2006-07-18 09:59:03,919 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterDestinationGenerator] [GET]
+> [/wlprovider/destination/Asap2Vitria/register]
+>  2006-07-18 09:59:04,019 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+> as a javax.jms.Destination]
+>  2006-07-18 09:59:40,712 INFO  [http-8080-Processor25] [HJBApplication]
+> Could not match request [/wlprovider/JMSUPCConnection/create]
+>  2006-07-18 10:00:27,159 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterConnectionFactoryGenerator] [GET]
+> [/wlprovider/JMSUPCConnection/register]
+>  2006-07-18 10:00:27,309 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register
+> JMSUPCConnection as a javax.jms.ConnectionFactory]
+>  2006-07-18 10:01:43,989 INFO  [http-8080-Processor25] [HJBApplication]
+> Could not match request [/wlprovider/JMSUPCConnection/create]
+>  2006-07-18 10:11:25,345 INFO  [http-8080-Processor24] [HJBServlet]
+> Hello - I've successfully started HJB root!
+>  2006-07-18 10:11:25,345 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner is
+> now active
+>  2006-07-18 10:11:25,445 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterProviderGenerator] [POST] [/wlprovider/register]
+>  2006-07-18 10:11:27,769 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register wlprovider as
+> a hjb.jms.HJBProvider]
+>  2006-07-18 10:11:30,993 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterDestinationGenerator] [GET]
+> [/wlprovider/destination/Asap2Vitria/register]
+>  2006-07-18 10:11:31,134 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+> as a javax.jms.Destination]
+>  2006-07-18 10:11:35,951 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [RegisterConnectionFactoryGenerator] [GET]
+> [/wlprovider/JMSUPCConnection/register]
+>  2006-07-18 10:11:36,131 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Register
+> JMSUPCConnection as a javax.jms.ConnectionFactory]
+>  2006-07-18 10:11:42,009 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [CreateConnectionGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/create]
+>  2006-07-18 10:11:42,480 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Create a
+> hjb.jms.HJBConnection: N/A]
+>  2006-07-18 10:18:31,488 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [CreateSessionGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/create]
+>  2006-07-18 10:18:31,608 INFO  [HJB Root Command Runner]
+> [JMSCommandRunner] Just executed                 [Create a
+> javax.jms.Session: 0]
+>  2006-07-18 10:18:31,608 INFO  [hjb.jms.HJBConnection at 24c672:Session:0]
+> [JMSCommandRunner] JMSCommandRunner in thread
+> hjb.jms.HJBConnection at 24c672:Session:0 is now active
+>  2006-07-18 10:24:43,623 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [CreateProducerGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+>  2006-07-18 10:24:43,683 ERROR [http-8080-Processor24]
+> [JMSArgumentFinder] Invalid destination URL was provided:
+> http://localhost:8080/MonitorWFE/hjb/wlprovider/Asap2Vitria
+>  2006-07-18 10:25:06,156 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [CreateProducerGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+>  2006-07-18 10:25:06,166 ERROR [http-8080-Processor25]
+> [JMSArgumentFinder] Invalid destination URL was provided:
+> http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria
+>  2006-07-18 10:27:02,763 INFO  [http-8080-Processor24] [HJBApplication]
+> generator [CreateProducerGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+>  2006-07-18 10:27:02,763 ERROR [http-8080-Processor24]
+> [JMSArgumentFinder] Invalid destination URL was provided:
+> http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria
+>  2006-07-18 10:29:52,017 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [CreateProducerGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+>  2006-07-18 10:29:52,017 ERROR [http-8080-Processor25]
+> [JMSArgumentFinder] Invalid destination URL was provided:
+> http://localhost:8080/MonitorWFE/hjb/wlprovider/destination/Asap2Vitria
+>  2006-07-18 10:30:23,682 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [CreateProducerGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+>  2006-07-18 10:30:23,682 ERROR [http-8080-Processor25]
+> [JMSArgumentFinder] Invalid destination URL was provided: Asap2Vitria
+>  2006-07-18 10:30:38,093 INFO  [http-8080-Processor25] [HJBApplication]
+> generator [CreateProducerGenerator] [POST]
+> [/wlprovider/JMSUPCConnection/connection-0/session-0/create-producer]
+>  2006-07-18 10:30:38,093 ERROR [http-8080-Processor25]
+> [JMSArgumentFinder] Invalid destination URL was provided:
+> destination/Asap2Vitria
+>
+>
+> Any ideas?
+>
+>
+> -----Original Message-----
+> From: tim.emiola at gmail.com [mailto:tim.emiola at gmail.com] On Behalf Of
+> Tim Emiola
+> Sent: 17 July 2006 20:13
+> To: Richard Jewson
+> Cc: hjb-users at lists.berlios.de
+> Subject: Re: [Hjb-users] Is there an example of how to use this?
+>
+> Unfortunately, it does - HJB assumes JMS 1.1 compliance, and the errors
+> below are consistent with the creation of JMS1.0.2 objects that don't
+> implement the JMS 1.1 interrfaces:
+>
+> javax.jms.ConnectionFactory  and javax.jms.Destination
+>
+> These do not exist prior to JMS1.1, hence you would get ClassCast
+> Exceptions on registering pre-1.1 Topics, Queues and ConnectionFactorys.
+>
+> On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> > Hi,
+> >
+> > Thanks - it seems to register the provider but not a Destination or
+> > Connection Factory:
+> >
+> > 2006-07-17 19:19:51,731 INFO  [HJB Root Command Runner]
+> > [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner
+> > is now active
+> >  2006-07-17 19:19:51,731 INFO  [http-8080-Processor24] [HJBServlet]
+> > Hello - I've successfully started HJB root!
+> >  2006-07-17 19:19:51,941 INFO  [http-8080-Processor24]
+> > [HJBApplication] generator [RegisterProviderGenerator] [POST]
+> > [/myprovider/register]
+> >  2006-07-17 19:19:54,525 INFO  [HJB Root Command Runner]
+> > [JMSCommandRunner] Just executed                 [Register myprovider
+> as
+> > a hjb.jms.HJBProvider]
+> >  2006-07-17 19:22:04,462 INFO  [http-8080-Processor25]
+> > [HJBApplication] Could not match request
+> > [/wl-provider/Asap2Vitria/register]
+> >  2006-07-17 19:22:50,238 INFO  [http-8080-Processor24]
+> > [HJBApplication] generator [RegisterConnectionFactoryGenerator] [GET]
+> > [/myprovider/Asap2Vitria/register]
+> >  2006-07-17 19:22:50,468 ERROR [HJB Root Command Runner]
+> > [BaseJMSCommand] java.lang.ClassCastException:
+> > weblogic.jms.common.DestinationImpl
+> >  2006-07-17 19:22:50,468 INFO  [HJB Root Command Runner]
+> > [JMSCommandRunner] Just executed                 [Register Asap2Vitria
+> > as a javax.jms.ConnectionFactory]
+> >  2006-07-17 19:29:26,438 INFO  [http-8080-Processor25]
+> > [HJBApplication] generator [RegisterConnectionFactoryGenerator] [GET]
+> > [/myprovider/Cramer2Vitria/register]
+> >  2006-07-17 19:29:26,448 ERROR [HJB Root Command Runner]
+> > [BaseJMSCommand] java.lang.ClassCastException:
+> > weblogic.jms.common.DestinationImpl
+> >  2006-07-17 19:29:26,448 INFO  [HJB Root Command Runner]
+> > [JMSCommandRunner] Just executed                 [Register
+> Cramer2Vitria
+> > as a javax.jms.ConnectionFactory]
+> >  2006-07-17 19:31:24,307 INFO  [http-8080-Processor24]
+> > [HJBApplication] generator [RegisterConnectionFactoryGenerator] [GET]
+> > [/myprovider/JMSUPCConnection/register]
+> >  2006-07-17 19:31:24,477 ERROR [HJB Root Command Runner]
+> > [BaseJMSCommand] java.lang.ClassCastException:
+> > weblogic.jms.client.JMSConnectionFactory
+> >  2006-07-17 19:31:24,477 INFO  [HJB Root Command Runner]
+> > [JMSCommandRunner] Just executed                 [Register
+> > JMSUPCConnection as a javax.jms.ConnectionFactory]
+> >
+> > I'm using webLogic 7 which is JMS 1.0.2b not 1.1, would that make a
+> > difference?
+> >
+> >
+> > Regards
+> > Richard
+> >
+> >
+> >
+> >
+> > -----Original Message-----
+> > From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> > Sent: 17 July 2006 18:24
+> > To: Richard Jewson
+> > Subject: Re: [Hjb-users] Is there an example of how to use this?
+> >
+> > Richard,
+> >
+> > please see the attached file.  Let me know how it goes.
+> >
+> > Tim
+> >
+> > On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> > > Hi,
+> > >
+> > > Thanks for the reply:
+> > >
+> > > 1) I misread the GET/POST thing for registering providers call -
+> > > sorry
+> >
+> > > about that.  On the page
+> > > <http://hjb.berlios.de/register-provider.html>
+> > > it talks about multiple parameters.  I guess these are thing like:
+> > >
+> > > java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+> > > java.naming.provider.url=t3://127.0.0.1:7501
+> > > java.naming.security.principal=admin
+> > > java.naming.security.credentials=password
+> > >
+> > > What format/parameters names do you use in the post?
+> > >
+> > > 2) I've attached my .WAR file (without the 37Mb weblogic.jar)
+> > >
+> > > Once I have a working example I'd be happy to write up my install as
+>
+> > > another perspective.  I'll also propably write some simple web pages
+>
+> > > in JSTL that create a session, connect and send messages - I'll send
+>
+> > > that to you as well.
+> > >
+> > >
+> > > -----Original Message-----
+> > > From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> > > Sent: 17 July 2006 15:42
+> > > To: Richard Jewson
+> > > Cc: hjb-users at lists.berlios.de
+> > > Subject: Re: [Hjb-users] Is there an example of how to use this?
+> > >
+> > > Hi Richard,
+> > > See the <comments/> below.
+> > > Let me know if you want me to send you a list of URLs before I
+> > > update the website.
+> > >
+> > > On 7/17/06, Richard Jewson <rjewson at tmns.com> wrote:
+> > > > Hi,
+> > > >
+> > > > Ok, I'm trying to use you project via a web front end that deals
+> > > > with various queues/topics for monitoring & testing.  So far I
+> > > > have achived
+> > >
+> > > > the following:
+> > > >
+> > > > 1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+> > > > 2) Started Tomcat and get:
+> > > > 2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet]
+>
+> > > > Hello
+> > > > - I've successfully started HJB root!
+> > > > 2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner]
+> > > > [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command
+> > > > Runner is now active
+> > > >
+> > > > However in the log of tomcat I get:
+> > > >
+> > > > INFO: Container
+> > > > org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hj
+> > > > b-
+> > > > wl
+> > > > ]
+> > > > has not been started
+> > > > 17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+> > > > validateJarFile
+> > > > INFO:
+> > > > validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib
+> > > > \w
+> > > > eb
+> > > > lo
+> > > > gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+> > > > Offending class: javax/servlet/Servlet.class
+> > > > 17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext
+> > > > start
+> > > > INFO: Container
+> > > > org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hj
+> > > > b-
+> > > > wl
+> > > > ]
+> > > > has already been started
+> > > >
+> > > > I'm not sure if this is a problem.
+> > > >
+> > >
+> > > <comment>
+> > > I'm not sure about this either.  If the weblogic.jar file is really
+> > > not loaded, it will not be possible to find the
+> > > weblogic.jndi.WLInitialContextFactory class.  However, since this
+> > > error occurs during servlet startup, it may not be a problem - it is
+>
+> > > probably Tomcat rejecting a version of the Servlet class found in
+> > > the weblogic.jar, which is the correct thing to do.
+> > > </comment>
+> > >
+> > > > 3) From here I tried to construct some URI's that would register a
+>
+> > > > provider e.g.
+> > > >
+> > > > http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.f
+> > > > ac
+> > > > to
+> > > > ry
+> > > >
+> .initial=weblogic.jndi.WLInitialContextFactory&java.naming.provider.
+> > > > ur
+> > > > l=
+> > > > t3://127.0.0.1:7501
+> > > >
+> > >
+> > > <comment>
+> > > The reason this does not work is because provider registration needs
+>
+> > > a
+> >
+> > > POST request. See <http://hjb.berlios.de/command-list.html> and
+> > > <http://hjb.berlios.de/register-provider.html>
+> > > After this, no other requests will work, because the provider has
+> > > not been registered successfully.
+> > > </comment>
+> > >
+> > > > However the format of the URL (especially the parameters) was not
+> > > > clear to me.  Each time I send a request I'd get the following
+> > > > line in
+> > >
+> > > > the log
+> > > > file:
+> > > >
+> > > > 2006-07-17 11:07:48,240 INFO  [http-8080-Processor22]
+> > > > [HJBApplication]
+> > >
+> > > > Could not match request [/weblogic/connectionFactory]
+> > > >
+> > >
+> > > <comment>
+> > > Can you post some of the URL's you are trying at the moment in
+> > > addition to the registration one?
+> > >
+> > > This looks as if you're sending a request to URL
+> > >
+> > > http://localhost:8080/hjb-wl/weblogic/connectionFactory
+> > >
+> > > and the servlet is not finding the anything.
+> > >
+> > > This would be the case, as "weblogic" is not registered as a
+> provider.
+> > > </comment>
+> > >
+> > > > 4) I saw the example files below but a) I've no experience with
+> > > > Python
+> > > > b) I don't have a huge amount of time to go through the Python
+> Lib.
+> > > >
+> > > >
+> > > > What I was looking for were some simple step by step examples of
+> > > > URL's
+> > >
+> > > > for POSTS and GETS that would enable me to send a message to a
+> > Queue.
+> > > >
+> > >
+> > > <comment>
+> > >
+> > > Thanks, that's a really good idea.  I'll do it, and put it on the
+> > > website later today.
+> > >
+> > > If you need this urgently, send me a copy of the hjb WAR file you've
+>
+> > > created, plus any pertinent weblogic configuration details (e.g.,
+> > > connection factory or destination names), and I'll send you series
+> > > of URLs with the corresponding request methods that should allow you
+>
+> > > to send a message.
+> > >
+> > > </comment>
+> > >
+> > >
+> > > > Regards
+> > > > Richard Jewson
+> > > >
+> > > >
+> > > > -----Original Message-----
+> > > > From: Tim Emiola [mailto:tim.emiola at gmail.com]
+> > > > Sent: 17 July 2006 14:02
+> > > > To: hjb-users at lists.berlios.de
+> > > > Cc: Richard Jewson
+> > > > Subject: RE: [Hjb-users] Is there an example of how to use this?
+> > > >
+> > > > Hi Richard,
+> > > >
+> > > > (Apologies for not CCing you on my first attempt)
+> > > >
+> > > > When running quick demos and manual functional tests,  I tend to
+> > > > use
+> >
+> > > > the python client for HJB, PyHjb <http://hjb.python-hosting.com>,
+> > > > and ActiveMQ <http://www.activemq.org>.  What messaging product
+> > > > are you using ?
+> > > >
+> > > > I'm not sure precisely what info you are looking for for, but the
+> > > > following list of URLs might help:
+> > > >
+> > > >     Instructions for downloading PyHJB:
+> > > > http://hjb.python-hosting.com/wiki/GettingStarted
+> > > >
+> > > >     There are simple code samples for using PyHJB:
+> > > > http://hjb.python-hosting.com/wiki/ExampleCode
+> > > >
+> > > >     The PyHjb distribution comes with a number of functions that
+> > > > demonstrate the use of python to communicate with a JMS server via
+> > > HJB.
+> > > > Information about these demos is available here:
+> > > > http://hjb.python-hosting.com/wiki/WorkingDemos.
+> > > >
+> > > >     The instructions for configuring several different messaging
+> > > > providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ)
+> > > > for
+> >
+> > > > use with HJB are included in the PyHJB distribution, and they can
+> > > > be
+> >
+> > > > accessed online via Trac:
+> > > >
+> > > >     ActiveMQ:
+> > > > http://hjb.python-hosting.com/file/trunk/samples/data/activemq/tes
+> > > > ti
+> > > > ng
+> > > > -a
+> > > > ctivemq.rst?rev=44
+> > > >
+> > > >     SwiftMQ:
+> > > > http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/t
+> > > > es
+> > > > ti
+> > > > ng
+> > > > -swiftmq.rst?rev=latest
+> > > >
+> > > >     WebSphereMQ:
+> > > > http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/test
+> > > > in
+> > > > g-
+> > > > ws
+> > > > mq.rst?rev=latest
+> > > >
+> > > >     JBossMessaging:
+> > > > http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/tes
+> > > > ti
+> > > > ng
+> > > > -j
+> > > > boss.rst?rev=latest
+> > > >
+> > > > My apologies if you've already looked at these, and want more!
+> > > >
+> > > > Please let me know these links helped or not,
+> > > >
+> > > > Tim
+> > > >
+> > >
+> > >
+> > >
+> >
+>
+
+

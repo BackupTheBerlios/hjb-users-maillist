@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Hjb-users] Is there an example of how to use this?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/hjb-users/2006-July/index.html" >
+   <LINK REL="made" HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20Is%20there%20an%20example%20of%20how%20to%20use%20this%3F&In-Reply-To=%3C5030EF6B1114384FA5E6AF563C3ACB77278478%40TMNSMAIL1.nl.tmns.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Hjb-users] Is there an example of how to use this?</H1>
+    <B>Richard Jewson</B> 
+    <A HREF="mailto:hjb-users%40lists.berlios.de?Subject=Re%3A%20%5BHjb-users%5D%20Is%20there%20an%20example%20of%20how%20to%20use%20this%3F&In-Reply-To=%3C5030EF6B1114384FA5E6AF563C3ACB77278478%40TMNSMAIL1.nl.tmns.com%3E"
+       TITLE="[Hjb-users] Is there an example of how to use this?">rjewson at tmns.com
+       </A><BR>
+    <I>Mon Jul 17 16:01:26 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+        <LI>Next message: <A HREF="000007.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Thanks for the reply:
+
+1) I misread the GET/POST thing for registering providers call - sorry
+about that.  On the page &lt;<A HREF="http://hjb.berlios.de/register-provider.html">http://hjb.berlios.de/register-provider.html</A>&gt;
+it talks about multiple parameters.  I guess these are thing like:
+
+java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+java.naming.provider.url=t3://127.0.0.1:7501
+java.naming.security.principal=admin
+java.naming.security.credentials=password
+
+What format/parameters names do you use in the post?
+
+2) I've attached my .WAR file (without the 37Mb weblogic.jar)
+
+Once I have a working example I'd be happy to write up my install as
+another perspective.  I'll also propably write some simple web pages in
+JSTL that create a session, connect and send messages - I'll send that
+to you as well.
+
+
+-----Original Message-----
+From: Tim Emiola [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>] 
+Sent: 17 July 2006 15:42
+To: Richard Jewson
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb-users at lists.berlios.de</A>
+Subject: Re: [Hjb-users] Is there an example of how to use this?
+
+Hi Richard,
+See the &lt;comments/&gt; below.
+Let me know if you want me to send you a list of URLs before I update
+the website.
+
+On 7/17/06, Richard Jewson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">rjewson at tmns.com</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Ok, I'm trying to use you project via a web front end that deals with 
+</I>&gt;<i> various queues/topics for monitoring &amp; testing.  So far I have achived
+</I>
+&gt;<i> the following:
+</I>&gt;<i>
+</I>&gt;<i> 1) Build the HJB War file for WEBLOGIC and deployed it to Tomcat
+</I>&gt;<i> 2) Started Tomcat and get:
+</I>&gt;<i> 2006-07-17 09:47:59,674 INFO  [http-8080-Processor24] [HJBServlet] 
+</I>&gt;<i> Hello
+</I>&gt;<i> - I've successfully started HJB root!
+</I>&gt;<i> 2006-07-17 09:47:59,674 INFO  [HJB Root Command Runner] 
+</I>&gt;<i> [JMSCommandRunner] JMSCommandRunner in thread HJB Root Command Runner 
+</I>&gt;<i> is now active
+</I>&gt;<i>
+</I>&gt;<i> However in the log of tomcat I get:
+</I>&gt;<i>
+</I>&gt;<i> INFO: Container
+</I>&gt;<i> org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl
+</I>&gt;<i> ]
+</I>&gt;<i> has not been started
+</I>&gt;<i> 17-Jul-2006 09:47:34 org.apache.catalina.loader.WebappClassLoader
+</I>&gt;<i> validateJarFile
+</I>&gt;<i> INFO:
+</I>&gt;<i> validateJarFile(D:\apache-tomcat-5.5.16\webapps\hjb-wl\WEB-INF\lib\web
+</I>&gt;<i> lo
+</I>&gt;<i> gic.jar) - jar not loaded. See Servlet Spec 2.3, section 9.7.2.
+</I>&gt;<i> Offending class: javax/servlet/Servlet.class
+</I>&gt;<i> 17-Jul-2006 09:47:40 org.apache.catalina.core.StandardContext start
+</I>&gt;<i> INFO: Container
+</I>&gt;<i> org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hjb-wl
+</I>&gt;<i> ]
+</I>&gt;<i> has already been started
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure if this is a problem.
+</I>&gt;<i>
+</I>
+&lt;comment&gt;
+I'm not sure about this either.  If the weblogic.jar file is really not
+loaded, it will not be possible to find the
+weblogic.jndi.WLInitialContextFactory class.  However, since this error
+occurs during servlet startup, it may not be a problem - it is probably
+Tomcat rejecting a version of the Servlet class found in the
+weblogic.jar, which is the correct thing to do.
+&lt;/comment&gt;
+
+&gt;<i> 3) From here I tried to construct some URI's that would register a 
+</I>&gt;<i> provider e.g.
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.facto">http://localhost:8080/hjb-wl/hjb/myprovider/register?java.naming.facto</A>
+</I>&gt;<i> ry 
+</I>&gt;<i> .initial=weblogic.jndi.WLInitialContextFactory&amp;java.naming.provider.ur
+</I>&gt;<i> l=
+</I>&gt;<i> t3://127.0.0.1:7501
+</I>&gt;<i>
+</I>
+&lt;comment&gt;
+The reason this does not work is because provider registration needs a
+POST request. See &lt;<A HREF="http://hjb.berlios.de/command-list.html">http://hjb.berlios.de/command-list.html</A>&gt; and
+&lt;<A HREF="http://hjb.berlios.de/register-provider.html">http://hjb.berlios.de/register-provider.html</A>&gt;
+After this, no other requests will work, because the provider has not
+been registered successfully.
+&lt;/comment&gt;
+
+&gt;<i> However the format of the URL (especially the parameters) was not 
+</I>&gt;<i> clear to me.  Each time I send a request I'd get the following line in
+</I>
+&gt;<i> the log
+</I>&gt;<i> file:
+</I>&gt;<i>
+</I>&gt;<i> 2006-07-17 11:07:48,240 INFO  [http-8080-Processor22] [HJBApplication]
+</I>
+&gt;<i> Could not match request [/weblogic/connectionFactory]
+</I>&gt;<i>
+</I>
+&lt;comment&gt;
+Can you post some of the URL's you are trying at the moment in addition
+to the registration one?
+
+This looks as if you're sending a request to URL
+
+<A HREF="http://localhost:8080/hjb-wl/weblogic/connectionFactory">http://localhost:8080/hjb-wl/weblogic/connectionFactory</A>
+
+and the servlet is not finding the anything.
+
+This would be the case, as &quot;weblogic&quot; is not registered as a provider.
+&lt;/comment&gt;
+
+&gt;<i> 4) I saw the example files below but a) I've no experience with Python
+</I>&gt;<i> b) I don't have a huge amount of time to go through the Python Lib.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> What I was looking for were some simple step by step examples of URL's
+</I>
+&gt;<i> for POSTS and GETS that would enable me to send a message to a Queue.
+</I>&gt;<i>
+</I>
+&lt;comment&gt;
+
+Thanks, that's a really good idea.  I'll do it, and put it on the
+website later today.
+
+If you need this urgently, send me a copy of the hjb WAR file you've
+created, plus any pertinent weblogic configuration details (e.g.,
+connection factory or destination names), and I'll send you series of
+URLs with the corresponding request methods that should allow you to
+send a message.
+
+&lt;/comment&gt;
+
+
+&gt;<i> Regards
+</I>&gt;<i> Richard Jewson
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Tim Emiola [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">tim.emiola at gmail.com</A>]
+</I>&gt;<i> Sent: 17 July 2006 14:02
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/hjb-users">hjb-users at lists.berlios.de</A>
+</I>&gt;<i> Cc: Richard Jewson
+</I>&gt;<i> Subject: RE: [Hjb-users] Is there an example of how to use this?
+</I>&gt;<i>
+</I>&gt;<i> Hi Richard,
+</I>&gt;<i>
+</I>&gt;<i> (Apologies for not CCing you on my first attempt)
+</I>&gt;<i>
+</I>&gt;<i> When running quick demos and manual functional tests,  I tend to use 
+</I>&gt;<i> the python client for HJB, PyHjb &lt;<A HREF="http://hjb.python-hosting.com">http://hjb.python-hosting.com</A>&gt;, and 
+</I>&gt;<i> ActiveMQ &lt;<A HREF="http://www.activemq.org">http://www.activemq.org</A>&gt;.  What messaging product are you 
+</I>&gt;<i> using ?
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure precisely what info you are looking for for, but the 
+</I>&gt;<i> following list of URLs might help:
+</I>&gt;<i>
+</I>&gt;<i>     Instructions for downloading PyHJB:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/wiki/GettingStarted">http://hjb.python-hosting.com/wiki/GettingStarted</A>
+</I>&gt;<i>
+</I>&gt;<i>     There are simple code samples for using PyHJB:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/wiki/ExampleCode">http://hjb.python-hosting.com/wiki/ExampleCode</A>
+</I>&gt;<i>
+</I>&gt;<i>     The PyHjb distribution comes with a number of functions that 
+</I>&gt;<i> demonstrate the use of python to communicate with a JMS server via
+</I>HJB.
+&gt;<i> Information about these demos is available here:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/wiki/WorkingDemos.">http://hjb.python-hosting.com/wiki/WorkingDemos.</A>
+</I>&gt;<i>
+</I>&gt;<i>     The instructions for configuring several different messaging 
+</I>&gt;<i> providers  (ActiveMQ, SwiftMQ, JBoss Messaging and Websphere MQ) for 
+</I>&gt;<i> use with HJB are included in the PyHJB distribution, and they can be 
+</I>&gt;<i> accessed online via Trac:
+</I>&gt;<i>
+</I>&gt;<i>     ActiveMQ:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing">http://hjb.python-hosting.com/file/trunk/samples/data/activemq/testing</A>
+</I>&gt;<i> -a
+</I>&gt;<i> ctivemq.rst?rev=44
+</I>&gt;<i>
+</I>&gt;<i>     SwiftMQ:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testi">http://hjb.python-hosting.com/browser/trunk/samples/data/swiftmq/testi</A>
+</I>&gt;<i> ng
+</I>&gt;<i> -swiftmq.rst?rev=latest
+</I>&gt;<i>
+</I>&gt;<i>     WebSphereMQ:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-">http://hjb.python-hosting.com/browser/trunk/samples/data/wsmq/testing-</A>
+</I>&gt;<i> ws
+</I>&gt;<i> mq.rst?rev=latest
+</I>&gt;<i>
+</I>&gt;<i>     JBossMessaging:
+</I>&gt;<i> <A HREF="http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing">http://hjb.python-hosting.com/browser/trunk/samples/data/jboss/testing</A>
+</I>&gt;<i> -j
+</I>&gt;<i> boss.rst?rev=latest
+</I>&gt;<i>
+</I>&gt;<i> My apologies if you've already looked at these, and want more!
+</I>&gt;<i>
+</I>&gt;<i> Please let me know these links helped or not,
+</I>&gt;<i>
+</I>&gt;<i> Tim
+</I>&gt;<i>
+</I>-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: hjb-wl-nowljar.war
+Type: application/octet-stream
+Size: 608258 bytes
+Desc: hjb-wl-nowljar.war
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/hjb-users/attachments/20060717/b8e3636a/attachment.obj">https://lists.berlios.de/pipermail/hjb-users/attachments/20060717/b8e3636a/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+	<LI>Next message: <A HREF="000007.html">[Hjb-users] Is there an example of how to use this?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/hjb-users">More information about the Hjb-users
+mailing list</a><br>
+</body></html>
